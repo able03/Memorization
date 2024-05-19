@@ -13,10 +13,12 @@ import android.speech.SpeechRecognizer;
 import android.speech.tts.TextToSpeech;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -106,9 +108,12 @@ public class VoiceActivity extends AppCompatActivity
             @Override
             public void onResults(Bundle bundle)
             {
+                Toast.makeText(VoiceActivity.this, "ONRESULTSSSSSSS", Toast.LENGTH_SHORT).show();
                 ArrayList<String> matches = bundle.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
                 if(matches != null){
                     et_speech.setText(matches.get(0));
+                    Log.d("Matches: " , " " + matches.get(0));
+
 
                 }
             }
@@ -144,7 +149,8 @@ public class VoiceActivity extends AppCompatActivity
                     public void run()
                     {
                         String str = et_speech.getText().toString();
-                        t1.speak(str, TextToSpeech.QUEUE_FLUSH, null, null);
+                        Log.d("STRRRR,", "STRR: " + str);
+                        //t1.speak(str, TextToSpeech.QUEUE_FLUSH, null, null);
 
                     }
                 }, 1000);
@@ -186,6 +192,7 @@ public class VoiceActivity extends AppCompatActivity
                         et_speech.setText("");
                         et_speech.setHint("Listening.....");
                         speechRecognizer.startListening(SpeechIntent);
+                        break;
                 }
                 return false;
             }
