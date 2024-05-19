@@ -21,6 +21,7 @@ import androidx.core.content.PackageManagerCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.viewpager.widget.PagerAdapter;
 
 
 import com.example.memorization.R;
@@ -86,13 +87,13 @@ public class PdfActivity extends AppCompatActivity
         Canvas canvas = page.getCanvas();
         Paint paint = new Paint();
 
-        paint.setColor(ContextCompat.getColor(this ,R.color.black));
+        paint.setColor(Color.BLACK);
         paint.setTextSize(10);
         canvas.drawText(uname, 10, 60, paint);
 
-        paint.setColor(Color.MAGENTA);
-        paint.setTextSize(20);
-        canvas.drawText(pass, 10, 70, paint);
+        paint.setColor(Color.BLUE);
+        paint.setTextSize(10);
+        canvas.drawText(pass, 10, 80, paint);
 
         document.finishPage(page);
 

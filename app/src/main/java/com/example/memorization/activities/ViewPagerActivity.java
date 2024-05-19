@@ -2,6 +2,7 @@ package com.example.memorization.activities;
 
 import android.os.Bundle;
 import android.view.animation.AccelerateInterpolator;
+import android.view.animation.CycleInterpolator;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -62,11 +63,12 @@ public class ViewPagerActivity extends AppCompatActivity
                     @Override
                     public void run()
                     {
-                        viewPager.setCurrentItem((viewPager.getCurrentItem()+1)%images.length);
+                        viewPager.setCurrentItem((viewPager.getCurrentItem() + 1) % images.length);
                     }
                 });
             }
-        }, 3000, 7000);
+        }, 3000, 6000);
+
 
         try
         {
@@ -77,6 +79,7 @@ public class ViewPagerActivity extends AppCompatActivity
         {
             throw new RuntimeException(e);
         }
+
     }
 
 }

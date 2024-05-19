@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -23,7 +24,7 @@ import com.google.android.material.snackbar.Snackbar;
 public class Memorizations extends AppCompatActivity
 {
 
-    MaterialButton btn_qr, btn_pager, btn_pdf, btn_scanner, btn_profile;
+    MaterialButton btn_qr, btn_pager, btn_pdf, btn_scanner, btn_profile,btn_voice;
     DBHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -59,6 +60,7 @@ public class Memorizations extends AppCompatActivity
         btn_pdf = findViewById(R.id.btn_pdf);
         btn_profile = findViewById(R.id.btn_profile);
         btn_scanner = findViewById(R.id.btn_scanner);
+        btn_voice = findViewById(R.id.btn_voice);
 
         dbHelper = new DBHelper(this);
     }
@@ -88,6 +90,15 @@ public class Memorizations extends AppCompatActivity
         btn_scanner.setOnClickListener(scan -> {
             Intent intent = new Intent(Memorizations.this, QRScannerActivity.class);
             startActivity(intent);
+        });
+
+        btn_voice.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                startActivity(new Intent(Memorizations.this, VoiceActivity.class));
+            }
         });
 
     }

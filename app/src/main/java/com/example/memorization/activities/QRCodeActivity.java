@@ -75,7 +75,7 @@ public class QRCodeActivity extends AppCompatActivity
 
         try
         {
-           matrix = writer.encode(str, BarcodeFormat.QR_CODE, 400, 400);
+            matrix = writer.encode(str, BarcodeFormat.QR_CODE, 400, 400);
         } catch (WriterException e)
         {
             throw new RuntimeException(e);
@@ -93,8 +93,9 @@ public class QRCodeActivity extends AppCompatActivity
         }
 
         Bitmap bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
-        bitmap.setPixels(pixels, 0, w, 0, 0, w, h);
+        bitmap.setPixels(pixels,0, w, 0, 0, w, h);
         return bitmap;
+
     }
 
     private byte[] bitmapToBytesArray(Bitmap bitmap)
