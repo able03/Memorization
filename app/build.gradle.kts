@@ -31,9 +31,7 @@ android {
     }
 }
 
-dependencies {
-
-
+dependencies    {
 
     implementation("com.applandeo:material-calendar-view:1.9.2")
     implementation("com.google.zxing:core:3.4.1")
